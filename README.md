@@ -2,6 +2,7 @@
 Using radix sort on decimal numbers – explanation.
 
 When completing your push_swap project you might decide to use radix sort. Check f.e. this tutorial <https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e> for a detailed explanation how it works. 
+
 Many implementations I have seen so far, use radix sort algorithm by first mapping N decimal numbers into the range [0: N], then turning the numbers into binary and finally by checking the bits whether they are 0 or 1.
 
 I used a different approach, which I describe in this note.
@@ -26,9 +27,13 @@ I observed the following:
 Just check the following numbers (*% denotes reminder from the division): 
 
 Decimal 4   Reminder 4 % 4 = 0*   Binary 100  
+
 Decimal 5   Reminder 5 % 4 = 1 	  Binary 101  
+
 Decimal 6   Reminder 6 % 4 = 2 	  Binary 110  
+
 Decimal 7   Reminder 7 % 4 = 3 	  Binary 111  
+
 Decimal 8   Reminder 8 % 4 = 0 	  Binary 1000
 
 3. The next digit to the left in binary is 0 if the reminder from the division of a decimal number by 8 is 0, 1, 2 or 3. It is 1 if the reminder is 4, 5,  6 or 7.
