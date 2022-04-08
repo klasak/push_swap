@@ -9,9 +9,7 @@ Many implementations I have seen so far, use radix sort algorithm by first mappi
 
 I used a different approach, which I describe in this note.
 
-I apply radix sort to the original arguments given as decimal numbers but at the same time I keep in mind how these numbers would look as binary numbers.
-
-Take f.e. decimal 10, in binary system: it would be 1010.
+I apply radix sort to the original arguments given as decimal numbers but at the same time I keep in mind how these numbers would look as binary numbers. Take f.e. decimal 10, in binary system: it would be 1010.
 
 While sorting binary numbers you start from the last digit, you check whether it is 0 (then move it to stack B) or 1 (then you keep it in stack A). When you are done, you continue with the one before the last one digit etc.
 
