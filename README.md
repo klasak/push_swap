@@ -17,28 +17,28 @@ How do I apply this to decimal numbers?
 
 I observed the following:
 
-1. The last digit in binary is the reminder (0 or 1) from the division of a decimal number by 2.
+1. The last digit in binary is the remainder (0 or 1) from the division of a decimal number by 2.
 2. The one before the last one digit in binary is:
    
-   0 if the reminder from the division of a decimal number by 4 is either 0 or 1.
+   0 if the remainder from the division of a decimal number by 4 is either 0 or 1.
    
-   1 if the reminder from the division of a decimal number by 4 is either 2 or 3. 
+   1 if the remainder from the division of a decimal number by 4 is either 2 or 3. 
 
-	Just check the following numbers (*% denotes reminder from the division): 
+	Just check the following numbers (*% denotes remainder from the division): 
 
-	Decimal 4   Reminder 4 % 4 = 0*   Binary 100  
+	Decimal 4   Remainder 4 % 4 = 0*   	Binary 100  
 
-	Decimal 5   Reminder 5 % 4 = 1 	  Binary 101  
+	Decimal 5   Remainder 5 % 4 = 1 	  Binary 101  
 
-	Decimal 6   Reminder 6 % 4 = 2 	  Binary 110  
+	Decimal 6   Remainder 6 % 4 = 2 	  Binary 110  
 
-	Decimal 7   Reminder 7 % 4 = 3 	  Binary 111  
+	Decimal 7   Remainder 7 % 4 = 3 	  Binary 111  
 
-	Decimal 8   Reminder 8 % 4 = 0 	  Binary 1000
+	Decimal 8   Remainder 8 % 4 = 0 	  Binary 1000
 	
 	Etc..
 
-3. The next digit to the left in binary is 0 if the reminder from the division of a decimal number by 8 is 0, 1, 2 or 3. It is 1 if the reminder is 4, 5,  6 or 7.
+3. The next digit to the left in binary is 0 if the remainder from the division of a decimal number by 8 is 0, 1, 2 or 3. It is 1 if the remainder is 4, 5,  6 or 7.
 
 Etc.. So there is a pattern. 
 
@@ -46,7 +46,7 @@ Thus my implementation:
 
 I. Divide a decimal number by 2^digit (when digit = 1 for the last digit, 2 for the second last etc..) 
 
-II. treat the current digit as 0 bit if the reminder falls into interval [0 : (2^digit)/2 - 1] 
+II. treat the current digit as 0 bit if the remainder falls into interval [0 : (2^digit)/2 - 1] 
 
 III. and as 1 otherwise.
 
@@ -62,9 +62,9 @@ while (i < size of stack)
 
 {
 
-	reminder = decimal_number % div;
+	remainder = decimal_number % div;
 
-	if (reminder >= 0 && reminder <= ((div / 2) - 1))
+	if (remainder >= 0 && reminder <= ((div / 2) - 1))
 
 		push to stack B
 
