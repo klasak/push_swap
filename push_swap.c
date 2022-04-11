@@ -40,6 +40,8 @@ static int	ft_check_input2(int argc, int *stack_a)
 		return (-1);
 	}
 	ft_sort(argc, stack_a);
+	if (argc == 4 || argc == 6 )
+		free(stack_a);
 	return (0);
 }
 
