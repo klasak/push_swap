@@ -1,0 +1,7 @@
+11/04 memory leak przy sortowaniu 3
+dodalam
+	if (argc == 4 || argc == 6 )
+		free(stack_a);
+    w push_swap. c input2 function..
+    
+sprawdz to (skad sie bierze ten leak) i dodaj sprawdzenie czy po +/- jest cyfra
