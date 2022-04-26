@@ -6,7 +6,7 @@
 /*   By: klasak <klasak@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/10 15:31:23 by klasak        #+#    #+#                 */
-/*   Updated: 2022/04/06 09:50:58 by klasak        ########   odam.nl         */
+/*   Updated: 2022/04/26 15:23:14 by klasak        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 
 # include <stddef.h>
 
+int		parts(char const *s, char c);
+char	**ft_split(char const *s, char c);
+int		ft_check_only_sign(int argc, char *argv[]);
 int		ft_check_dig_or_sign(int argc, char *argv[]);
 int		ft_min_max(int argc, char *argv[]);
 int		ft_atoi(const char *str);
 int		ft_sorted_check(int argc, int *stack);
 int		ft_duplicates(int argc, int *stack);
+int		*ft_mapping(int argc, int *stack_a);
 int		*ft_sort_3(int argc, int *stack_a);
 int		*ft_sort_5(int argc, int *stack_a);
 int		*ft_radix(int argc, int *stack_a);
@@ -43,5 +47,6 @@ int		*ft_rap(int argc, int *stack);
 int		*ft_pbp(int argc, int *stack_a, int *stack_b);
 int		ft_isdigit_or_sign(int c);
 int		ft_isdigit(int c);
+void	*free_each(char **array);
 
 #endif

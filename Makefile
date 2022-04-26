@@ -20,10 +20,12 @@ SRCS			= push_swap.c\
 				ft_sort_3.c\
 				ft_sort_5.c\
 				ft_input_check.c\
+				ft_mapping.c\
 				ft_operations.c\
 				ft_operations2.c\
 				ft_radix_help.c \
-				ft_radix.c
+				ft_radix.c \
+				ft_split.c
 
 OBJ_FILES		= $(SRCS:.c=.o)
 

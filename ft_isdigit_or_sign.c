@@ -6,7 +6,7 @@
 /*   By: klasak <klasak@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/12 15:27:16 by klasak        #+#    #+#                 */
-/*   Updated: 2021/11/30 17:33:48 by klasak        ########   odam.nl         */
+/*   Updated: 2022/04/26 11:51:26 by klasak        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,22 @@ int	ft_isdigit_or_sign(int c)
 		return (0);
 	}
 	return (1);
+}
+
+int	ft_check_only_sign(int argc, char *argv[])
+{
+	int		i;
+	char	*string;
+
+	i = 0;
+	while (i < argc - 1)
+	{
+		string = argv[i];
+		if (string[0] == '+' && string[1] == '\0')
+			return (1);
+		else if (string[0] == '-' && string[1] == '\0')
+			return (1);
+		i++;
+	}
+	return (0);
 }

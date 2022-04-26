@@ -6,7 +6,7 @@
 /*   By: klasak <klasak@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/10 13:48:50 by klasak        #+#    #+#                 */
-/*   Updated: 2022/04/06 10:03:19 by klasak        ########   odam.nl         */
+/*   Updated: 2022/04/26 15:45:39 by klasak        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ static int	ft_sort(int argc, int *stack_a)
 	else if (argc == 6)
 		stack_a = ft_sort_5(argc, stack_a);
 	else
+	{
+		stack_a = ft_mapping (argc, stack_a);
 		stack_a = ft_radix(argc, stack_a);
+	}
+	free(stack_a);
 	return (0);
 }
 
@@ -40,8 +44,6 @@ static int	ft_check_input2(int argc, int *stack_a)
 		return (-1);
 	}
 	ft_sort(argc, stack_a);
-	if (argc == 4 || argc == 6 )
-		free(stack_a);
 	return (0);
 }
 
@@ -66,25 +68,43 @@ static int	ft_check_input(int argc, char *argv[])
 {
 	int	*stack_a;
 
-	if (ft_check_dig_or_sign(argc, argv + 1) == 1)
+	if (ft_check_only_sign(argc, argv) == 1)
 	{
 		write(0, "Error\n", 6);
 		return (-1);
 	}
-	if (ft_min_max(argc, argv + 1) == 1)
+	if (ft_check_dig_or_sign(argc, argv) == 1)
 	{
 		write(0, "Error\n", 6);
 		return (-1);
 	}
-	stack_a = ft_create_stack(argc, argv + 1);
+	if (ft_min_max(argc, argv) == 1)
+	{
+		write(0, "Error\n", 6);
+		return (-1);
+	}
+	stack_a = ft_create_stack(argc, argv);
 	ft_check_input2(argc, stack_a);
 	return (0);
 }
 
 int	main(int argc, char *argv[])
 {
+	char	**temp;
+	int		i;
+
 	if (argc < 2)
 		return (-1);
-	ft_check_input(argc, argv);
+	temp = NULL;
+	i = 1;
+	if (argc == 2)
+	{
+		argc = 1 + parts(argv[1], ' ');
+		temp = ft_split(argv[1], ' ');
+		ft_check_input(argc, temp);
+		free_each(temp);
+	}
+	else
+		ft_check_input(argc, argv + 1);
 	return (0);
 }
