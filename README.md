@@ -5,7 +5,7 @@ When completing your push_swap project you might decide to use radix sort.
 
 Check f.e. this tutorial <https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e> for a detailed explanation how it works. 
 
-Many implementations I have seen so far, use radix sort algorithm by first mapping N decimal numbers into the range [0: N], then turning the numbers into binary and finally by checking the bits whether they are 0 or 1.
+As explained in the link above, you can use radix sort algorithm by first turning the numbers into binary and then by checking the bits whether they are 0 or 1.
 
 I used a different approach, which I describe in this note.
 
